@@ -25,4 +25,7 @@ Realiza estas comprobaciones y reporta un checklist conciso (✅/⚠️/❌):
 
 5. **Bilingüe**: verifica que las páginas tengan secciones en español E inglés (o archivos espejo i18n).
 
+6. **Riqueza / no plano**: revisa que las páginas usen elementos visuales (al menos un diagrama Mermaid
+   o tabla, y admonitions). Páginas sin ningún elemento visual = ⚠️ "documentación plana".
+
 No modifiques nada. Solo reporta y, al final, ofrece ejecutar `/docs-update $1` para corregir.

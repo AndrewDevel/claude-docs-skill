@@ -17,8 +17,26 @@ docs/
 │   └── api/                  # referencia de API (si aplica)
 ├── src/css/custom.css
 └── static/
+    ├── img/
+    │   ├── logo.png          # logo de la marca (navbar + social card)
+    │   └── favicon.ico       # favicon multi-resolución
     └── openapi.json          # spec embebido (si aplica)
 ```
+
+## Marca: favicon y logo / Branding: favicon and logo
+
+Copia los assets de marca a `<repo>/docs/static/img/`:
+
+1. **Si el repo ya tiene un logo/favicon propio** (busca en `public/`, `src/assets/`, `assets/`
+   nombres como `favicon.*`, `logo*.png`, `*-icon.png`), reutilízalo: es lo más fiel a la marca.
+2. **Si no**, usa los assets por defecto incluidos en
+   `assets/docusaurus/img/` (logo de PagaCel) — cópialos a `static/img/`.
+
+La config ya apunta a `favicon: 'img/favicon.ico'`, `navbar.logo.src: 'img/logo.png'` e
+`image: 'img/logo.png'` (tarjeta social). Genera el `.ico` desde un PNG con
+`convert icon.png -define icon:auto-resize=64,32,16 favicon.ico` (ImageMagick) o con PIL.
+La paleta de `custom.css` ya está afinada a los colores de PagaCel (slate `#2D3142`, acento
+`#7366ff`, cyan `#00B4D8`).
 
 > El sitio de docs tiene su **propio** `package.json`, separado del `package.json` del proyecto,
 > para no contaminar las dependencias de la app. Copiar la plantilla desde

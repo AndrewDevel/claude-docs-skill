@@ -24,10 +24,14 @@ Genera y **mantiene** documentación viva para repos de desarrollo. Todo el cont
 This skill produces up to three documentation types, **only those that apply** to the detected repo:
 
 1. **Technical (interna)** — arquitectura, decisiones de diseño, setup del entorno, estructura del
-   repo, modelos de datos. _Architecture, design decisions, environment setup, repo structure, data models._
+   repo, modelos de datos, **pruebas/testing** y **troubleshooting**.
+   _Architecture, design decisions, environment setup, repo structure, data models, testing, troubleshooting._
 2. **Platform guide (cliente final)** — onboarding y flujos paso a paso de la plataforma.
    _End-user onboarding and step-by-step flows._ (Solo para repos con UI: frontend / full-stack / móvil.)
 3. **API reference** — solo si el proyecto expone una API. _Only if the project exposes an API._
+
+La documentación **no debe quedar plana**. Usa siempre elementos visuales e interactivos (color,
+diagramas, pestañas, cajas de aviso) según `references/rich-content.md`. Ver el Paso 3.
 
 ## Workflow
 
@@ -68,16 +72,29 @@ The site must expose three sidebar sections that mirror the doc types (Técnica 
 API), each written in Spanish and English. Use Docusaurus i18n (`es` default, `en` locale) as
 described in the reference.
 
-### Step 3 — Generate / refresh content
+### Step 3 — Generate / refresh content (rich, not flat)
 
-For each applicable doc type, write Markdown into `/<repo>/docs/docs/` using the bilingual templates
-in `assets/templates/`:
+For each applicable doc type, write content into `/<repo>/docs/docs/` using the bilingual templates
+in `assets/templates/`. **Prefiere las plantillas `.mdx`** (interactivas) y usa las `.md` planas solo
+como fallback si MDX no está disponible:
 
-- `technical.md` → llena con arquitectura real inferida del código (estructura de carpetas, módulos,
-  rutas/feature folders, modelos de datos, variables de entorno, comandos de build/test).
-- `platform-guide.md` → describe los flujos de usuario observados en las vistas/pantallas.
-- Fill placeholders (`{{...}}`) with facts gathered by reading the repo — never leave template
-  placeholders in the final output.
+- `technical.mdx` → arquitectura real inferida del código (estructura, módulos, rutas/feature folders,
+  modelos de datos, variables de entorno, comandos). Incluye diagramas Mermaid reales.
+- `platform-guide.mdx` → flujos de usuario observados en las vistas/pantallas, con diagramas de secuencia.
+- `testing.mdx` → estrategia de pruebas, comandos reales del repo (lee `package.json`/CI), cobertura,
+  casos críticos. Va dentro de `tecnica/` como `pruebas.mdx`.
+- `troubleshooting.md` → errores comunes y FAQ (dentro de `tecnica/`).
+- `changelog.md` → historial de la documentación (en la raíz de `docs/`).
+- `technical.md` / `platform-guide.md` → versiones planas de respaldo (sin componentes React).
+
+**Haz que cada página sea rica, no plana.** Lee `references/rich-content.md` y aplica, donde aporte
+claridad: admonitions de color, pestañas ES/EN (`<Tabs groupId="lang">`), diagramas Mermaid
+(`flowchart`/`sequenceDiagram`/`erDiagram`), code blocks con `title` y líneas resaltadas, badges para
+métodos HTTP, tarjetas en la portada y `<details>` para FAQ. Los diagramas deben reflejar el código
+real (capas, rutas, entidades), no ejemplos genéricos.
+
+Fill placeholders (`{{...}}`) with facts gathered by reading the repo — never leave template
+placeholders in the final output.
 
 When **updating** (not initializing), diff what changed in the code (new routes, new modules, new
 env vars, version bumps) and edit only the affected sections, preserving human-written prose. Bump
@@ -120,6 +137,8 @@ Check the docs are up to date relative to the code:
 Read these on demand — don't load them all at once:
 
 - `references/docusaurus.md` — scaffolding, i18n bilingüe, sidebars, deploy a GitHub Pages.
+- `references/rich-content.md` — componentes visuales e interactivos (admonitions, tabs, Mermaid,
+  badges, tarjetas). **Léelo siempre antes de escribir contenido** para que no quede plano.
 - `references/api-reference.md` — Scalar/Redoc embed, fallback OpenAPI desde código.
 - `references/mobile-docc.md` — DocC para proyectos Swift/iOS.
 - `references/mkdocs-alternative.md` — alternativa MkDocs Material (solo si el usuario la pide).
