@@ -1,0 +1,27 @@
+---
+title: Referencia de API / API Reference
+sidebar_position: 1
+---
+
+import { ApiReferenceReact } from '@scalar/api-reference-react';
+import '@scalar/api-reference-react/style.css';
+
+# Referencia de API / API Reference
+
+> Última actualización / Last updated: {{DATE}} · Versión / Version: {{VERSION}}
+
+## Español
+
+Esta referencia se genera desde el spec OpenAPI del proyecto. Si el spec fue derivado del código
+(análisis estático), los parámetros y esquemas son un borrador que conviene revisar.
+
+## English
+
+This reference is rendered from the project's OpenAPI spec. If the spec was derived from code
+(static analysis), parameters and schemas are a draft worth reviewing.
+
+<ApiReferenceReact
+  configuration={{
+    spec: { url: '/openapi.json' },
+  }}
+/>

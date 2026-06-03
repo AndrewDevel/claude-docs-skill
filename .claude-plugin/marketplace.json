@@ -1,0 +1,23 @@
+{
+  "name": "claude-docs-skill",
+  "owner": {
+    "name": "AndrewDevel",
+    "url": "https://github.com/AndrewDevel"
+  },
+  "metadata": {
+    "description": "Marketplace de herramientas de documentación para proyectos de desarrollo. / Documentation tooling marketplace for developer projects.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "project-docs",
+      "source": "./plugins/project-docs",
+      "description": "Genera y mantiene documentación bilingüe (ES/EN) con Docusaurus: técnica, guía de plataforma y referencia de API. Detecta el stack (frontend/backend/full-stack/Swift) automáticamente.",
+      "version": "0.1.0",
+      "author": {
+        "name": "AndrewDevel"
+      },
+      "keywords": ["documentation", "docusaurus", "openapi", "bilingual"]
+    }
+  ]
+}
