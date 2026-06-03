@@ -12,7 +12,7 @@ description: >
   reference (embedding existing OpenAPI, generating OpenAPI from code, DocC for Swift, or structured
   Markdown as fallback). Use it proactively any time documentation needs to be created or kept up to date.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   author: "AndrewDevel"
 ---
 

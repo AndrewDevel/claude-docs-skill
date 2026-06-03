@@ -1,6 +1,6 @@
 {
   "name": "project-docs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Genera y mantiene documentación bilingüe (ES/EN) de proyectos de desarrollo con Docusaurus: técnica, guía de plataforma y referencia de API. Detecta el stack automáticamente. / Generates and maintains bilingual developer documentation with Docusaurus.",
   "author": {
     "name": "AndrewDevel"
